@@ -1,0 +1,11 @@
+.card{
+    width:fit-content;
+    padding:1rem;
+    margin:auto;
+    margin-top: 1rem;
+    background-color: purple;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    border: 1px solid black;
+}

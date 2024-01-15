@@ -1,0 +1,12 @@
+.username, .age{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    color:white;
+}
+.input{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    padding:0.5rem;
+}

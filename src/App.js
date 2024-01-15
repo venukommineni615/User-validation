@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
-
+import DialogBox from './components/Dialog-box/DialogBox';
+import InputForm from './components/Input-components/InputForm';
+import UserList from './components/Input-components/UserList';
+import {useState} from "react"
 function App() {
+const [userDetails,setUserDetails]=useState([])
+const[modal,setModal]=useState({toggle:false,
+msg:''})
+const toggleModal=(errMsg)=>{
+  setModal((prev)=>{
+    return {toggle:!prev.toggle,
+    msg:errMsg}
+  })
+}
+const addUser=(username,age)=>{
+  let user={
+    username,
+    age,
+    id:Math.random()
+  }
+  setUserDetails((prev)=>{
+    return [...prev,user]
+  })
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {modal.toggle && <DialogBox switch={toggleModal} msg={modal.msg}></DialogBox>}
+      <InputForm addUser={addUser} switch={toggleModal}></InputForm>
+      <UserList list={userDetails}></UserList>
     </div>
   );
 }
