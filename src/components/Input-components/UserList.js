@@ -10,7 +10,7 @@ return(
             {props.list.map((ele)=>{
                 return (<li key={ele.id}>{ele.username} ({
                     ele.age
-                })</li>)
+                } years)</li>)
             })}
         </ul>
     </Card>
