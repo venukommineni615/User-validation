@@ -5,9 +5,10 @@ import { useState } from "react"
 const InputForm=(props)=>{
     const [user,setUser]=useState('')
     const [age,setAge]=useState('')
+    const [college,setCollege]=useState('')
     const addUser=(event)=>{
         event.preventDefault()
-        if(user.length===0 || age.length===0){
+        if(user.length===0 || age.length===0 || college.length===0){
             props.switch("Please enter the details")
             return
         }
@@ -15,9 +16,10 @@ const InputForm=(props)=>{
             props.switch("age should be greater than zero")
             return
         }
-        props.addUser(user,age)
+        props.addUser(user,age,college)
         setUser('')
         setAge('')
+        setCollege('')
 
     }
     const userChange=(event)=>{
@@ -25,6 +27,9 @@ const InputForm=(props)=>{
     }
     const ageChange=(event)=>{
         setAge(event.target.value)
+    }
+    const collegeChange=(event)=>{
+        setCollege(event.target.value)
     }
 
     
@@ -38,6 +43,10 @@ return(
             <div className={styles.age}>
                 <label htmlFor='age'>Age:</label>
                 <input value={age} id="age" type="number" className={styles.input} onChange={ageChange}></input>
+            </div>
+            <div className={styles.college}>
+                <label htmlFor='college'>College:</label>
+                <input value={college} id="college" type="text" className={styles.input} onChange={collegeChange}></input>
             </div>
             <Button type='submit' >Submit</Button>
         </form>

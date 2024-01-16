@@ -13,10 +13,11 @@ const toggleModal=(errMsg)=>{
     msg:errMsg}
   })
 }
-const addUser=(username,age)=>{
+const addUser=(username,age,college)=>{
   let user={
     username,
     age,
+    college,
     id:Math.random()
   }
   setUserDetails((prev)=>{
