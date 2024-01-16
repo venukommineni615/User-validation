@@ -1,8 +1,9 @@
 import Button from "../UI/Button"
 import styles from "./DialogBox.module.css"
 import Card from "../UI/Card"
+import ReactDOM  from "react-dom"
 const DialogBox=(props)=>{
-    return(
+    return ReactDOM.createPortal(
         <div className={styles.container}>
         <div className={styles.dialogBackground}></div>
             <div className={styles.dialog}>
@@ -14,7 +15,8 @@ const DialogBox=(props)=>{
                     </div>
                 </Card>
             </div>
-        </div>
+        </div>,
+        document.getElementById("modal-root")
         )
 }
 export default DialogBox
